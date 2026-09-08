@@ -5,13 +5,21 @@
 
 ## Cálculos y decisiones lógicas que el programa aplica a cada lectura:
 ●	Calcular la altitud actual a partir de la presión atmosférica, mediante la fórmula barométrica.
+
 ●	Registrar la altitud máxima alcanzada (apogeo) comparando la altitud actual contra el mayor valor visto hasta el momento (variable escalar acumuladora).
+
 ●	Determinar la fase de vuelo (ascenso, apogeo/caída libre o despliegue de paracaídas) comparando la altitud actual con la altitud del segundo anterior, y usando la aceleración para distinguir caída libre de descenso frenado.
+
 ●	Detectar el instante del apogeo por primera vez (altitud_actual < altitud_previa) y activar una bandera booleana que evita volver a reportarlo.
+
 ●	Evaluar si la temperatura del motor/estructura supera los umbrales de alerta (80 °C) o crítico (120 °C) y generar el mensaje de alarma correspondiente.
+
 ●	Acumular la suma de temperaturas y el conteo de lecturas, para calcular el promedio al finalizar (sin guardar cada lectura en una lista).
+
 ●	Actualizar la aceleración máxima registrada, comparando el valor absoluto de cada lectura contra el máximo acumulado.
+
 ●	Verificar la condición de aterrizaje (altitud_actual ≤ 0 con tiempo > 0) o la orden manual de finalización ('fin') para terminar el ciclo.
+
 
 ## Salidas
 
@@ -22,6 +30,7 @@ https://lucid.app/lucidchart/34bc382c-4a85-43d2-8030-890a289ac82b/edit?viewport_
 
 # Pseudocódigo
 ## Primero, se define una función para calcular la altitud (Esto, usando losw datos de presion proveidos en el Notion)
+
 FUNCION calcular_altitud(presion_hpa: float):
   SI presion_hpa <= 0 ENTONCES
       RETORNAR 0.0
