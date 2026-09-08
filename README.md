@@ -2,6 +2,7 @@
 
 ## 1. Análisis del Problema (Entradas / Procesos / Salidas)
 <img width="476" height="131" alt="image" src="https://github.com/user-attachments/assets/1537997c-825a-4b4a-bdd4-0f82cad5900a" />
+
 ## Cálculos y decisiones lógicas que el programa aplica a cada lectura:
 ●	Calcular la altitud actual a partir de la presión atmosférica, mediante la fórmula barométrica.
 ●	Registrar la altitud máxima alcanzada (apogeo) comparando la altitud actual contra el mayor valor visto hasta el momento (variable escalar acumuladora).
@@ -13,6 +14,7 @@
 ●	Verificar la condición de aterrizaje (altitud_actual ≤ 0 con tiempo > 0) o la orden manual de finalización ('fin') para terminar el ciclo.
 
 ## Salidas
+
 <img width="472" height="128" alt="image" src="https://github.com/user-attachments/assets/d2f89623-13b6-44a6-a58a-d17443193971" />
 
 # 2. Diagrama de Flujo
