@@ -1,3 +1,5 @@
+**JUSTIFICACION RETO**
+
 1 y 2) 
 
 <img width="439" height="326" alt="Screenshot 2026-10-08 113204" src="https://github.com/user-attachments/assets/0216807d-ac50-4496-99a2-caaf11b1552f" />
@@ -11,4 +13,5 @@
 6) Siento que merezco un 4.3, hice gran parte del código pero siento que pude haber hecho mejor al añadir conceptos mas complejos, y comparandolo con el de otros compañeros si fue mas sencillo. Agregando que para la funcion de realizar mantenimiento, me toco usar IA para sacar la variable que fue declarada dentro de la funcion.
 
 **DIAGRAMA DE BLOQUES**
+
 <img width="572" height="220" alt="image" src="https://github.com/user-attachments/assets/8174f0c6-d08c-41dd-af0c-ee13ba528e7a" />
