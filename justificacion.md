@@ -9,3 +9,6 @@
 <img width="428" height="376" alt="image" src="https://github.com/user-attachments/assets/6bc246f7-6f5f-4558-bad1-a9950768bfd9" />
 
 6) Siento que merezco un 4.3, hice gran parte del código pero siento que pude haber hecho mejor al añadir conceptos mas complejos, y comparandolo con el de otros compañeros si fue mas sencillo. Agregando que para la funcion de realizar mantenimiento, me toco usar IA para sacar la variable que fue declarada dentro de la funcion.
+
+**DIAGRAMA DE BLOQUES**
+<img width="572" height="220" alt="image" src="https://github.com/user-attachments/assets/8174f0c6-d08c-41dd-af0c-ee13ba528e7a" />
