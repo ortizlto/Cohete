@@ -1,0 +1,91 @@
+def leer_horas(mensaje):
+    texto = input(mensaje).strip()
+    while not texto.replace(".", "", 1).isdigit():
+        print("Valor invalido, ingrese un numero (ej: 1500.5)")
+        texto = input(mensaje).strip()
+    return float(texto)
+
+def registrar_aeronave(flota):
+    mat = input("Matricula (ej. HK-4532): ").strip().upper()
+    if mat in flota:
+        print("Esa aeronave ya esta registrada")
+        return
+    modelo = input("Modelo (ej. A320): ").strip().upper()
+    horas = leer_horas("Horas de vuelo acumuladas: ")
+    flota[mat] = {"modelo": modelo, "horas": horas, "componentes": []}
+    print("Aeronave", mat, "registrada")
+nombre = ""
+
+def registrar_componente(flota):
+    mat = input("Matricula de la aeronave: ").strip().upper()
+    if mat not in flota:
+        print("No existe esa aeronave")
+        return
+    nombre = input("Componente (ej. Motor izquierdo): ").strip()
+    uso = leer_horas("Horas de uso actuales: ")
+    limite = leer_horas("Limite de horas antes de mantenimiento: ")
+    flota[mat]["componentes"].append({"nombre": nombre, "uso": uso, "limite": limite})
+    print("Componente agregado a", mat)
+
+
+def ver_flota(flota):
+    if len(flota) == 0:
+        print("No hay aeronaves registradas")
+    for mat in flota:
+        print(mat, "|", flota[mat]["modelo"], "|", flota[mat]["horas"], "h de vuelo")
+        for c in flota[mat]["componentes"]:
+            print("   -", c["nombre"], ":", c["uso"], "/", c["limite"], "h")
+
+alertas = 0
+
+def reporte_mantenimiento(flota):
+    global alertas
+    alertas = 0
+    for mat in flota:
+        for c in flota[mat]["componentes"]:
+            if c["uso"] >= c["limite"]:
+                alertas = alertas + 1
+                print("[ALERTA]", mat, flota[mat]["modelo"], "-", c["nombre"], ":",
+                      c["uso"], "/", c["limite"], "h -> MANTENIMIENTO INMEDIATO")
+    print("Total de componentes que requieren mantenimiento:", alertas)
+
+def mantenimiento_realizado(flota):
+    global alertas
+    while alertas != 0:
+        print(alertas, "componentes requieren mantenimiento")
+        repa=input("Desea registrar el mantenimiento realizado? (s/n): ").strip().lower()
+        if repa == "s":
+            for mat in flota:
+                for c in flota[mat]["componentes"]:
+                 if c["uso"] >= c["limite"]:
+                    c["uso"] = 0
+                    print("Mantenimiento realizado en", mat, "-", c["nombre"])
+                    return
+        else:
+            print("Mantenimiento no registrado")
+            return
+    print("No hay componentes que requieran mantenimiento")
+
+def main():
+    flota = {}
+    op = ""
+    while op != "6":
+        print("BIENVENIDO AL SISTEMA DE GESTIÓN DE FLOTA AERONÁUTICA - SATENA")
+        print("1. Registrar aeronave\n2. Registrar componente\n3. Ver flota")
+        print("4. Reporte de mantenimiento\n5. Realizar Mantenimiento\n6. Salir")
+        op = input("Opcion: ").strip()
+        if op == "1":
+            registrar_aeronave(flota)
+        elif op == "2":
+            registrar_componente(flota)
+        elif op == "3":
+            ver_flota(flota)
+        elif op == "4":
+            reporte_mantenimiento(flota)
+        elif op == "5":
+            mantenimiento_realizado(flota)
+        else:
+            print("Opcion invalida")
+    print("Hasta luego")
+
+main()
